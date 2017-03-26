@@ -10,9 +10,8 @@ import UIKit
 
 class RecommendViewModel {
 
-     lazy var dataArr : [AuthorGroup] = [AuthorGroup]()
-     lazy var cycleModels : [CycleModel] = [CycleModel]()
-    
+    lazy var dataArr : [AuthorGroup] = [AuthorGroup]()
+    lazy var cycleModels : [CycleModel] = [CycleModel]()
     fileprivate lazy var bigDataGroup : AuthorGroup = AuthorGroup()
     fileprivate lazy var prettyGroup : AuthorGroup = AuthorGroup()
 }
@@ -76,6 +75,7 @@ extension RecommendViewModel {
             finishedCallback()
         }
     }
+    
     func requestCycleData(_ finishedCallback : @escaping () -> ()){
     
         NetworkToos.requestData(.get, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version" : "2.300"]) { (result) in

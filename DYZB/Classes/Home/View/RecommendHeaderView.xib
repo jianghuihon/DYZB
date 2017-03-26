@@ -26,10 +26,11 @@
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="7CJ-3U-920"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="xNq-Ww-iaS"/>
                     </connections>
                 </collectionView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="sHD-9B-He9">
-                    <rect key="frame" x="316" y="113" width="39" height="37"/>
+                    <rect key="frame" x="316" y="117" width="39" height="37"/>
                     <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="currentPageIndicatorTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
@@ -40,12 +41,13 @@
                 <constraint firstAttribute="trailing" secondItem="sHD-9B-He9" secondAttribute="trailing" constant="20" id="Azb-BU-LgS"/>
                 <constraint firstAttribute="trailing" secondItem="5cV-IO-A96" secondAttribute="trailing" id="hRr-pG-TK5"/>
                 <constraint firstItem="5cV-IO-A96" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lw3-B5-Pe3"/>
-                <constraint firstAttribute="bottom" secondItem="sHD-9B-He9" secondAttribute="bottom" id="tH4-re-ngp"/>
+                <constraint firstAttribute="bottom" secondItem="sHD-9B-He9" secondAttribute="bottom" constant="-4" id="tH4-re-ngp"/>
                 <constraint firstAttribute="bottom" secondItem="5cV-IO-A96" secondAttribute="bottom" id="x4L-DQ-emr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="collectionView" destination="5cV-IO-A96" id="Q7x-VI-Ig5"/>
+                <outlet property="pageControl" destination="sHD-9B-He9" id="KhP-IU-u59"/>
             </connections>
             <point key="canvasLocation" x="25" y="-202"/>
         </view>
