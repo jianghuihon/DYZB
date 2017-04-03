@@ -8,9 +8,8 @@
 
 import UIKit
 
-class RecommendViewModel {
+class RecommendViewModel : BaseViewModel{
 
-    lazy var dataArr : [AuthorGroup] = [AuthorGroup]()
     lazy var cycleModels : [CycleModel] = [CycleModel]()
     fileprivate lazy var bigDataGroup : AuthorGroup = AuthorGroup()
     fileprivate lazy var prettyGroup : AuthorGroup = AuthorGroup()
@@ -52,26 +51,21 @@ extension RecommendViewModel {
                 let author = AnthorModel(dict: dict)
                 self.prettyGroup.anthors.append(author)
             }
+            
             disGroup.leave()
         }
         
         disGroup.enter()
         ///请求2-12游戏数据
-        NetworkToos.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: paramters) { (result) in
-            guard let resultDict = result as? [String : NSObject] else { return }
-            guard let resultArr = resultDict["data"] as? [[String : NSObject]] else { return }
-            
-            for dict in resultArr {
-                let group = AuthorGroup(dict: dict)
-                self.dataArr.append(group)
-            }
+        requestAnthorData(isGroupData: true,urlString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameter: paramters) {
             disGroup.leave()
         }
         
         disGroup.notify(queue: DispatchQueue.main)
         {
-            self.dataArr.insert(self.prettyGroup, at: 0)
-            self.dataArr.insert(self.bigDataGroup, at: 0)
+            self.anthorGroups.insert(self.prettyGroup, at: 0)
+            self.anthorGroups.insert(self.bigDataGroup, at: 0)
+        
             finishedCallback()
         }
     }

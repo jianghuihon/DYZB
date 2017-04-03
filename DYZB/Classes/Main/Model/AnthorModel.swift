@@ -18,7 +18,7 @@ class AnthorModel: NSObject {
     var room_name : String = ""
     var anchor_city : String = ""
     
-    init(dict: [String : NSObject]) {
+    init(dict: [String : Any]) {
         super.init()
         setValuesForKeys(dict)
     }

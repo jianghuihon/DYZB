@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AuthorGroup: NSObject {
+class AuthorGroup: GameBaseModel {
+    
     var room_list : [[String : NSObject]]? {
     didSet{
         guard let room_list = room_list else { return }
@@ -19,13 +20,14 @@ class AuthorGroup: NSObject {
        }
     }
     
-    var tag_name : String = ""
     var icon_name : String = "home_header_normal"
+    
     lazy var anthors : [AnthorModel] = [AnthorModel]()
+    
     ///构造函数
     override init() {}
     
-    init(dict : [String : NSObject]) {
+    init(dict : [String : Any]) {
         super.init()
         setValuesForKeys(dict)
     }
